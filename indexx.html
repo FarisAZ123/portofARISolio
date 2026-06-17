@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id" data-lock="active" data-payment="pending">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#020617" />
+  <title>Website Terkunci — Pembayaran Belum Selesai</title>
+
+  <!--
+    LOCKED DEPLOYMENT FILE
+    ---------------------------------------------------------
+    File ini sengaja hanya berisi halaman terkunci.
+    Kode portfolio asli TIDAK disimpan di file ini.
+    Artinya: menghapus overlay/teks "locked" tidak akan membuka portfolio.
+    Untuk membuka website, deploy ulang file index.html asli setelah pembayaran selesai.
+    ---------------------------------------------------------
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg2: #07111f;
+      --panel: rgba(15, 23, 42, .76);
+      --panel2: rgba(2, 6, 23, .68);
+      --text: #f8fafc;
+      --muted: rgba(226, 232, 240, .72);
+      --soft: rgba(226, 232, 240, .48);
+      --line: rgba(148, 163, 184, .22);
+      --blue: #38bdf8;
+      --cyan: #7dd3fc;
+      --lime: #bef264;
+      --red: #fb7185;
+      --yellow: #facc15;
+      --whatsapp: #25D366;
+      --sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Instrument Serif", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100svh;
+      overflow-x: hidden;
+      color: var(--text);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(56, 189, 248, .24), transparent 32vw),
+        radial-gradient(circle at 86% 78%, rgba(190, 242, 100, .15), transparent 30vw),
+        radial-gradient(circle at 50% 110%, rgba(30, 64, 175, .38), transparent 38vw),
+        linear-gradient(135deg, #020617 0%, #07111f 54%, #01040b 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .44;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, .045) 1px, transparent 1px);
+      background-size: 82px 82px;
+      mask-image: radial-gradient(circle at 50% 48%, #000 0 56%, transparent 84%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .15;
+      mix-blend-mode: screen;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 5vw, 72px);
+    }
+
+    .shell {
+      width: min(1140px, 100%);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(20px, 4vw, 46px);
+      align-items: stretch;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: clamp(28px, 4vw, 46px);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025)),
+        var(--panel);
+      backdrop-filter: blur(26px);
+      box-shadow:
+        0 30px 110px rgba(0,0,0,.56),
+        inset 0 1px 0 rgba(255,255,255,.09);
+    }
+
+    .hero {
+      min-height: 680px;
+      padding: clamp(28px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -18%;
+      top: -22%;
+      width: 430px;
+      height: 430px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(56,189,248,.42), transparent 64%);
+      filter: blur(18px);
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      bottom: -30%;
+      height: 360px;
+      background:
+        radial-gradient(ellipse at 50% 20%, rgba(125,211,252,.24), transparent 60%),
+        linear-gradient(180deg, transparent, rgba(15,23,42,.88));
+      z-index: -1;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dot::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 22px rgba(251,113,133,.8);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--lime);
+      color: #08111f;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .copy {
+      padding-block: clamp(42px, 6vh, 78px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--cyan);
+      box-shadow: 0 0 18px rgba(125,211,252,.7);
+    }
+
+    h1 {
+      max-width: 780px;
+      font-family: var(--serif);
+      font-size: clamp(62px, 9.4vw, 124px);
+      line-height: .82;
+      letter-spacing: -.065em;
+      font-weight: 400;
+    }
+
+    h1 span {
+      display: block;
+      color: rgba(248,250,252,.56);
+      font-style: italic;
+    }
+
+    .desc {
+      max-width: 650px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.25vw, 17px);
+      line-height: 1.85;
+    }
+
+    .notice {
+      margin-top: 28px;
+      width: min(640px, 100%);
+      border: 1px solid rgba(251,113,133,.28);
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(251,113,133,.09);
+      color: rgba(255,228,230,.94);
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+
+    .notice b {
+      color: white;
+    }
+
+    .price-box {
+      margin-top: 18px;
+      width: min(640px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(250,204,21,.28);
+      background: rgba(250,204,21,.085);
+    }
+
+    .price-box span {
+      display: block;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .price-box strong {
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: .9;
+      letter-spacing: -.06em;
+      color: #fff;
+    }
+
+    .footer {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--soft);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .footer b {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .arrow {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(226,232,240,.3);
+      background: rgba(255,255,255,.06);
+      color: var(--lime);
+      font-size: 24px;
+      transform: rotate(-45deg);
+    }
+
+    .side {
+      min-height: 680px;
+      padding: clamp(24px, 4vw, 42px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 72% 15%, rgba(190,242,100,.12), transparent 28%),
+        radial-gradient(circle at 16% 82%, rgba(56,189,248,.13), transparent 34%),
+        var(--panel2);
+    }
+
+    .visual {
+      position: relative;
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      border-radius: 32px;
+      border: 1px solid rgba(148,163,184,.18);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), transparent 42%),
+        rgba(15,23,42,.42);
+      overflow: hidden;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border-radius: 28px;
+      border: 1px dashed rgba(125,211,252,.26);
+    }
+
+    .lock {
+      position: relative;
+      width: 154px;
+      height: 154px;
+      display: grid;
+      place-items: center;
+      border-radius: 44px;
+      background: linear-gradient(145deg, rgba(56,189,248,.26), rgba(255,255,255,.08));
+      border: 1px solid rgba(125,211,252,.28);
+      box-shadow:
+        0 28px 80px rgba(0,0,0,.34),
+        0 0 60px rgba(56,189,248,.2);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .lock svg {
+      width: 76px;
+      height: 76px;
+      color: var(--text);
+      filter: drop-shadow(0 0 22px rgba(125,211,252,.3));
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 50%;
+      width: 260px;
+      height: 260px;
+      margin: -130px;
+      border-radius: 999px;
+      border: 1px solid rgba(125,211,252,.13);
+      animation: spin 18s linear infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: var(--lime);
+      box-shadow: 0 0 22px rgba(190,242,100,.8);
+    }
+
+    .orbit::before {
+      top: 24px;
+      left: 40px;
+    }
+
+    .orbit::after {
+      right: 20px;
+      bottom: 60px;
+      background: var(--cyan);
+      box-shadow: 0 0 22px rgba(125,211,252,.8);
+    }
+
+    .items {
+      margin-top: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 17px;
+      border-radius: 22px;
+      border: 1px solid rgba(148,163,184,.14);
+      background: rgba(255,255,255,.045);
+    }
+
+    .item i {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(56,189,248,.13);
+      color: var(--cyan);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .item strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .item p {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .btns {
+      margin-top: 26px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(125,211,252,.22);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform .24s ease, background .24s ease, border-color .24s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(125,211,252,.42);
+      background: rgba(255,255,255,.1);
+    }
+
+    .btn.pay {
+      color: #03140a;
+      background: linear-gradient(135deg, #dcfce7, var(--whatsapp));
+      border-color: transparent;
+      box-shadow: 0 20px 55px rgba(37,211,102,.24);
+    }
+
+    .btn.pay svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .small {
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 11.5px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .tamper-alert {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: #020617;
+      color: white;
+      font-family: var(--sans);
+      text-align: center;
+    }
+
+    .tamper-alert.active {
+      display: grid;
+    }
+
+    .tamper-alert div {
+      width: min(560px, 100%);
+      border: 1px solid rgba(251,113,133,.35);
+      border-radius: 28px;
+      padding: 30px;
+      background: rgba(251,113,133,.1);
+    }
+
+    .tamper-alert h2 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 400;
+      line-height: .9;
+      margin-bottom: 14px;
+    }
+
+    .tamper-alert p {
+      color: rgba(255,228,230,.88);
+      line-height: 1.8;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-14px) rotate(1deg); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 920px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .side {
+        min-height: auto;
+      }
+
+      .hero {
+        gap: 42px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 14px;
+        place-items: stretch;
+      }
+
+      .top,
+      .footer,
+      .price-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: clamp(54px, 18vw, 82px);
+      }
+
+      .visual {
+        min-height: 250px;
+      }
+
+      .lock {
+        width: 128px;
+        height: 128px;
+        border-radius: 36px;
+      }
+
+      .lock svg {
+        width: 62px;
+        height: 62px;
+      }
+
+      .orbit {
+        width: 212px;
+        height: 212px;
+        margin: -106px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page" id="locked-root" data-required="payment-150000">
+    <section class="shell" aria-label="Website terkunci sementara">
+      <article class="card hero">
+        <div class="top">
+          <span class="dot">Access Restricted</span>
+          <span class="badge">Payment Pending</span>
+        </div>
+
+        <div class="copy">
+          <div class="eyebrow">Website Locked</div>
+          <h1>Website <span>terkunci.</span></h1>
+          <p class="desc">
+            Halaman portfolio ini sementara dinonaktifkan karena proses pembayaran belum diselesaikan.
+            Setelah pembayaran selesai dan terkonfirmasi, akses website dapat dibuka kembali oleh pengembang.
+          </p>
+
+          <div class="notice" id="lock-notice">
+            <b>Informasi:</b> Konten utama website tidak disimpan di file terkunci ini.
+            Jadi menghapus bagian locked tidak akan membuka portfolio asli. Untuk membuka akses,
+            file website asli harus dideploy ulang setelah pembayaran selesai.
+          </div>
+
+          <div class="price-box" id="payment-box">
+            <div>
+              <span>Total pembayaran</span>
+              <strong>Rp150.000</strong>
+            </div>
+            <div style="color: var(--soft); font-size: 12.5px; line-height: 1.65;">
+              Pembayaran aktivasi dan pembukaan kembali akses website portfolio.
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div>
+            <b>Ahmad Faris Alzabar Portfolio</b>
+            Creative Content Creator &amp; Video Editor — Selected Works 2026
+          </div>
+          <div class="arrow" aria-hidden="true">→</div>
+        </div>
+      </article>
+
+      <aside class="card side">
+        <div>
+          <div class="visual" aria-hidden="true">
+            <div class="orbit"></div>
+            <div class="lock">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 10V8.2C7 5.33 9.24 3 12 3s5 2.33 5 5.2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M6.8 10h10.4c1 0 1.8.82 1.8 1.84v6.32c0 1.02-.8 1.84-1.8 1.84H6.8c-1 0-1.8-.82-1.8-1.84v-6.32C5 10.82 5.8 10 6.8 10Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 14v2.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="items">
+            <div class="item">
+              <i>01</i>
+              <div>
+                <strong>Status website</strong>
+                <p>Terkunci sementara sampai pembayaran sebesar Rp150.000 diselesaikan.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <i>02</i>
+              <div>
+                <strong>Proteksi file</strong>
+                <p>File ini tidak membawa konten portfolio asli, sehingga tidak cukup hanya menghapus overlay locked.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <i>03</i>
+              <div>
+                <strong>Aktivasi ulang</strong>
+                <p>Website dapat aktif kembali setelah file portfolio asli dideploy ulang oleh pengembang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="btns">
+            <a class="btn pay" id="pay-button" href="https://wa.me/62895340530985?text=Halo%2C%20saya%20ingin%20menyelesaikan%20pembayaran%20website%20portfolio%20sebesar%20Rp150.000.%20Mohon%20bantu%20aktifkan%20kembali%20website%20saya." target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path fill="currentColor" d="M16.02 3.2A12.62 12.62 0 0 0 5.2 22.33L4 28l5.8-1.16A12.6 12.6 0 1 0 16.02 3.2Zm0 22.92c-2.06 0-3.98-.6-5.6-1.62l-.4-.25-3.15.63.65-3.06-.27-.43a10.27 10.27 0 1 1 8.77 4.73Zm5.75-7.67c-.31-.16-1.86-.92-2.15-1.02-.29-.11-.5-.16-.71.16-.21.31-.82 1.02-1 1.23-.18.21-.37.24-.68.08-.31-.16-1.32-.49-2.52-1.56-.93-.83-1.56-1.86-1.75-2.17-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.7-.97-2.33-.25-.61-.51-.53-.71-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.62s1.13 3.04 1.29 3.25c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.52 1.8.66.76.24 1.45.21 1.99.13.61-.09 1.86-.76 2.13-1.5.26-.73.26-1.36.18-1.5-.08-.13-.29-.21-.61-.37Z"/>
+              </svg>
+              Bayar / Konfirmasi via WhatsApp
+            </a>
+            <a class="btn" href="javascript:location.reload()">Cek Ulang Status Website</a>
+          </div>
+          <p class="small">
+            Tombol bayar akan membuka WhatsApp ke nomor 62895340530985 dengan pesan konfirmasi pembayaran otomatis.
+          </p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="tamper-alert" id="tamper-alert">
+    <div>
+      <h2>Akses tetap terkunci.</h2>
+      <p>
+        Struktur halaman pembayaran/locked terdeteksi berubah. Konten portfolio asli tidak tersedia di file ini.
+        Silakan selesaikan pembayaran untuk aktivasi resmi.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const required = {
+        root: "locked-root",
+        notice: "lock-notice",
+        payment: "payment-box",
+        button: "pay-button",
+        price: "Rp150.000",
+        phone: "62895340530985"
+      };
+
+      function showTamperAlert() {
+        const alert = document.getElementById("tamper-alert");
+        if (alert) alert.classList.add("active");
+        document.documentElement.dataset.lock = "tampered";
+        document.body.style.overflow = "hidden";
+      }
+
+      function verifyLockPage() {
+        const root = document.getElementById(required.root);
+        const notice = document.getElementById(required.notice);
+        const payment = document.getElementById(required.payment);
+        const button = document.getElementById(required.button);
+
+        if (!root || !notice || !payment || !button) {
+          showTamperAlert();
+          return;
+        }
+
+        const bodyText = document.body.innerText || "";
+        const href = button.getAttribute("href") || "";
+
+        const ok =
+          root.dataset.required === "payment-150000" &&
+          bodyText.includes(required.price) &&
+          href.includes(required.phone) &&
+          href.includes("wa.me");
+
+        if (!ok) showTamperAlert();
+      }
+
+      verifyLockPage();
+      setInterval(verifyLockPage, 1500);
+
+      document.addEventListener("keydown", (event) => {
+        const key = event.key.toLowerCase();
+        if (
+          event.key === "F12" ||
+          (event.ctrlKey && event.shiftKey && ["i", "j", "c"].includes(key)) ||
+          (event.ctrlKey && key === "u")
+        ) {
+          event.preventDefault();
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>
